@@ -1,14 +1,15 @@
 // Square.jsx
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-const Square = () => {
-
+const Square = ({ currentPokemon }) => {
     const [value, setValue] = useState(null);
 
     const onClick = () => {
-        setValue('X');
+        if (!value) {
+            setValue(currentPokemon);
+        }
     }
+
     return (
         <button className="square" onClick={onClick}>
             {value}
